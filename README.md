@@ -31,10 +31,10 @@ An explainable, fair, and high-performing loan default prediction system built o
 
 | Metric                    | Before SMOTE | After SMOTE + XGBoost | vs FICO Proxy |
 |--------------------------|--------------|-----------------------|---------------|
-| Minority Recall          | 0.45         | **0.78**              | -             |
-| AUC-ROC                  | 0.71         | **0.79**              | -             |
-| Accuracy                 | -            | -                     | **+12%**      |
-| Equalized Odds Diff (Gender) | 0.18      | **0.06**              | -             |
+| Minority Recall          | 0.0067         | **0.0233**              | +0.0167           |
+| AUC-ROC                  | 0.71         | **0.79**              | -0.577          |
+| Accuracy                 | 0.9701            | **0.9636**                   | -0.0065      |
+| Equalized Odds Diff (Gender) | 0.18      | **0.06**              | =0.00001             |
 
 
 
@@ -79,7 +79,7 @@ text---
 ├── requirements.txt
 └── n8n_workflow.json
 
- Installation & Setup
+## Installation & Setup
 1. Clone Repository
 Bashgit clone https://github.com/yourusername/creditguard-agentic.git
 cd creditguard-agentic
@@ -94,7 +94,7 @@ streamlit run app.py
 # OR
 uvicorn src.main:app --reload
 
-📈 Usage
+## 📈 Usage
 Credit Risk API
 BashPOST /score
 {
@@ -110,7 +110,7 @@ Open the beautiful "Field Notes" UI and ask questions like:
 "Explain the latest developments in agentic AI"
 
 
- Fairness & Responsible AI
+## Fairness & Responsible AI
 
 Sensitive Attributes Audited: Gender, Age
 Metrics: Equalized Odds Difference, Demographic Parity
@@ -118,7 +118,7 @@ Mitigation: Post-processing threshold optimization
 Explainability: SHAP global & local explanations
 
 
- Deployment Options
+## Deployment Options
 
 Credit Risk API: FastAPI → Render / Railway / AWS
 Agentic Assistant: Can be deployed as:
