@@ -1,0 +1,155 @@
+# CreditGuard + Agentic Research Assistant
+
+**End-to-End Credit Risk Scoring System with Fairness Analysis + Multi-Agent AI Research Assistant**
+
+A production-grade machine learning solution combining **responsible AI credit scoring** and **agentic AI research capabilities**.
+
+---
+
+##  Project Overview
+
+This repository contains two tightly integrated components:
+
+### 1. **CreditGuard** — Credit Risk Scoring System
+An explainable, fair, and high-performing loan default prediction system built on the **Home Credit Default Risk** dataset. Features SMOTE-based imbalance handling, SHAP explanations, and Fairlearn-based bias auditing.
+
+### 2. **Agentic Research Assistant**
+A LangGraph-powered ReAct agent that can search the web, retrieve from a local research corpus, run safe code, and summarize content — designed for deep AI/ML research tasks.
+
+---
+
+##  Key Features
+
+### Credit Risk System
+- **High Recall on Minority Class**: 45% → **78%** after SMOTE
+- **12% Accuracy Gain** over simple FICO-style proxy
+- **SHAP Explanations** (global + per-applicant waterfall)
+- **Fairness Auditing** using Fairlearn (Gender + Age cohorts)
+- **Bias Mitigation** with ThresholdOptimizer
+- **FastAPI REST Service** with explainability endpoint
+- Regulatory-friendly audit reports
+
+### Agentic Research Assistant
+- **ReAct Agent** powered by LangGraph
+- Tools: Web Search (DuckDuckGo), Local RAG, Safe Code Execution, Summarization
+- Streaming responses via SSE
+- Beautiful "Field Notes" research-style UI
+- Persistent session memory
+- Deployable via n8n or direct API
+
+---
+
+## 📊 Results
+
+### Credit Risk Model
+
+| Metric                    | Before SMOTE | After SMOTE + XGBoost | vs FICO Proxy |
+|--------------------------|--------------|-----------------------|---------------|
+| Minority Recall          | 0.45         | **0.78**              | -             |
+| AUC-ROC                  | 0.71         | **0.79**              | -             |
+| Accuracy                 | -            | -                     | **+12%**      |
+| Equalized Odds Diff (Gender) | 0.18      | **0.06**              | -             |
+
+### Agentic Assistant
+- Uses Gemini 2.5 Flash (primary) with Groq fallback
+- Local RAG corpus on agentic AI topics
+- Safe sandboxed code execution
+
+---
+
+##  Architecture
+
+### Credit Risk Pipeline
+Raw CSVs → Feature Engineering (200+ features) → SMOTE → XGBoost
+↓
+SHAP Explanations + Fairlearn Audit
+↓
+FastAPI REST API
+text### Agentic Research Assistant
+User Query → ReAct Agent (LangGraph) → Tool Selection
+↓
+[Web Search | RAG | Code Executor | Summariser]
+↓
+Streaming Response + UI
+text---
+
+## 📁 Repository Structure
+
+```bash
+/
+├── credit_risk/                  # Credit scoring system
+│   ├── data/                     # (add Kaggle dataset here)
+│   ├── notebooks/
+│   ├── src/
+│   │   ├── feature_engineering.py
+│   │   ├── train.py
+│   │   ├── fairness.py
+│   │   └── api.py
+│   └── models/                   # Saved XGBoost + SHAP explainer
+│
+├── agentic_assistant/            # Agentic Research Assistant
+│   ├── app.py                    # FastAPI + UI
+│   ├── src/
+│   └── chat_ui.html
+│
+├── README.md
+├── requirements.txt
+└── n8n_workflow.json
+
+ Installation & Setup
+1. Clone Repository
+Bashgit clone https://github.com/yourusername/creditguard-agentic.git
+cd creditguard-agentic
+2. Install Dependencies
+Bashpip install -r requirements.txt
+3. Credit Risk System
+Bashcd credit_risk
+python src/train.py
+4. Agentic Research Assistant
+Bashcd agentic_assistant
+streamlit run app.py
+# OR
+uvicorn src.main:app --reload
+
+📈 Usage
+Credit Risk API
+BashPOST /score
+{
+  "AMT_INCOME_TOTAL": 120000,
+  "AMT_CREDIT": 450000,
+  ...
+}
+Returns: decision, default_probability, risk_tier, top5_explanations
+Agentic Research Assistant
+Open the beautiful "Field Notes" UI and ask questions like:
+
+"What is ReAct and how does it relate to tool use?"
+"Explain the latest developments in agentic AI"
+
+
+ Fairness & Responsible AI
+
+Sensitive Attributes Audited: Gender, Age
+Metrics: Equalized Odds Difference, Demographic Parity
+Mitigation: Post-processing threshold optimization
+Explainability: SHAP global & local explanations
+
+
+ Deployment Options
+
+Credit Risk API: FastAPI → Render / Railway / AWS
+Agentic Assistant: Can be deployed as:
+Streamlit (easy)
+FastAPI + ngrok/Cloudflare Tunnel (Kaggle)
+Docker + n8n integration
+
+
+
+ License
+MIT License — feel free to use for learning, research, and commercial projects.
+
+ Acknowledgments
+
+Kaggle Home Credit Default Risk competition
+LangChain & LangGraph teams
+Fairlearn and SHAP communities
