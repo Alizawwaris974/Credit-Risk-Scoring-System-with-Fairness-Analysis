@@ -1,20 +1,12 @@
-# CreditGuard + Agentic Research Assistant
+**End-to-End Credit Risk Scoring System with Fairness Analysis **
 
-**End-to-End Credit Risk Scoring System with Fairness Analysis + Multi-Agent AI Research Assistant**
-
-A production-grade machine learning solution combining **responsible AI credit scoring** and **agentic AI research capabilities**.
-
+A production-grade machine learning solution combining **responsible AI credit scoring** 
 ---
 
 ##  Project Overview
 
-This repository contains two tightly integrated components:
-
-### 1. **CreditGuard** — Credit Risk Scoring System
+ **CreditGuard** — Credit Risk Scoring System
 An explainable, fair, and high-performing loan default prediction system built on the **Home Credit Default Risk** dataset. Features SMOTE-based imbalance handling, SHAP explanations, and Fairlearn-based bias auditing.
-
-### 2. **Agentic Research Assistant**
-A LangGraph-powered ReAct agent that can search the web, retrieve from a local research corpus, run safe code, and summarize content — designed for deep AI/ML research tasks.
 
 ---
 
@@ -29,13 +21,7 @@ A LangGraph-powered ReAct agent that can search the web, retrieve from a local r
 - **FastAPI REST Service** with explainability endpoint
 - Regulatory-friendly audit reports
 
-### Agentic Research Assistant
-- **ReAct Agent** powered by LangGraph
-- Tools: Web Search (DuckDuckGo), Local RAG, Safe Code Execution, Summarization
-- Streaming responses via SSE
-- Beautiful "Field Notes" research-style UI
-- Persistent session memory
-- Deployable via n8n or direct API
+
 
 ---
 
@@ -50,10 +36,7 @@ A LangGraph-powered ReAct agent that can search the web, retrieve from a local r
 | Accuracy                 | -            | -                     | **+12%**      |
 | Equalized Odds Diff (Gender) | 0.18      | **0.06**              | -             |
 
-### Agentic Assistant
-- Uses Gemini 2.5 Flash (primary) with Groq fallback
-- Local RAG corpus on agentic AI topics
-- Safe sandboxed code execution
+
 
 ---
 
