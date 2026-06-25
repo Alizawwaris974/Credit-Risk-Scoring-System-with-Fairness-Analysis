@@ -1,4 +1,4 @@
-**End-to-End Credit Risk Scoring System with Fairness Analysis **
+# End-to-End Credit Risk Scoring System with Fairness Analysis 
 
 A production-grade machine learning solution combining **responsible AI credit scoring** 
 ---
